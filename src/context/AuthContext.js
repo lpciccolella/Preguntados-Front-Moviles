@@ -13,6 +13,18 @@ const authReducer = (state, action) => {
         username: action.payload.username,
         errorMessage: "",
       };
+    case "tryLocalSignin":
+      return {
+        token: action.payload.token,
+        username: action.payload.username,
+        errorMessage: "",
+      };
+    case "login":
+      return{
+        token: action.payload.token,
+        username: action.payload.username,
+        errorMessage: "",
+      }
     case "clear_error_message":
       return { ...state, errorMessage: "" };
     case "signout":

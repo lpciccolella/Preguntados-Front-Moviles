@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 
-//reducer del arhivo, funciones, el estado inicial
 export default (reducer, actions, defaultValue) => {
   const Context = React.createContext();
 

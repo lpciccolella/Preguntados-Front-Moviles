@@ -1,16 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  Container,
-  Content,
-  Text,
-  Form,
-  Item,
-  Input,
-  Button,
-  H1,
-  H2,
-  Label,
-} from "native-base";
+import { Container, Content, Text, Form, Item, Input, Button, H1, H2, Label } from "native-base";
 import { StyleSheet } from "react-native";
 
 import NavLink from "../components/NavLink";
@@ -30,8 +19,8 @@ const LoginScreen = () => {
           alignContent: "center",
         }}
       >
-        <H1 style={{ alignSelf: "center", marginBottom: 20 }}>Preguntados</H1>
-        <H2 style={{ alignSelf: "center" }}>Iniciar Sesion</H2>
+        <H1 style={{ alignSelf: "center", marginBottom: 20, backgroundColor: "blue", color: "white"}}>Preguntados</H1>
+        <H2 style={{ alignSelf: "center", fontSize: 20}}>Iniciar Sesion</H2>
         <Form style={{ marginRight: 10 }}>
           <Item floatingLabel>
             <Label>Email</Label>
@@ -71,7 +60,7 @@ const LoginScreen = () => {
         </Button>
         <NavLink
           routeName="Signup"
-          text="¿No estas Resgitrado? Registrate"
+          text="¿No estas Registrado? Registrate Aqui"
           navStyle={{ alignSelf: "center", marginBottom: 50 }}
           changeScreen={clearErrorMessage}
         />

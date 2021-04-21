@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { Text, Button, Container, Content, Badge } from "native-base";
+import { Text, Button, Icon, Container, Content} from "native-base";
 import { StyleSheet } from "react-native";
-
-import Icon from "../components/Icon";
 
 import { Context as AuthContext } from "../context/AuthContext";
 import { Context as TriviaContext } from "../context/TriviaContext";
+import IconM from "../components/IconM";
 
 const HomeScreen = ({ navigation }) => {
   const {
@@ -25,17 +24,21 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <Container style={{ flex: 1 }}>
+    <Container style={{ 
+      flex: 1}}>
       <Content
         contentContainerStyle={{
           flex: 1,
           justifyContent: "center",
-          alignContent: "center",
+          alignContent: "center"
         }}
       >
+        <Text 
+        style={{fontSize: 25, fontWeight: "bold", textAlign:"center", marginHorizontal: 20, marginBottom: 20 }}
+        > ONE PLAYER GAME MODES </Text>
         <Button
+          full
           rounded
-          block
           style={{ marginHorizontal: 20, marginBottom: 20 }}
           onPress={() => {
             getNormalQuestions();
@@ -43,11 +46,12 @@ const HomeScreen = ({ navigation }) => {
           }}
           warning
         >
-          <Text>Modo Normal</Text>
+        <Icon name='hourglass' />
+          <Text>MODO NORMAL</Text>
         </Button>
         <Button
+         full
           rounded
-          block
           style={{ marginHorizontal: 20, marginBottom: 20 }}
           onPress={() => {
             getRushQuestions();
@@ -55,22 +59,30 @@ const HomeScreen = ({ navigation }) => {
           }}
           danger
         >
-          <Text>Modo Rush</Text>
+          <Icon name='infinite' />
+          <Text>RUSH MODE</Text>
         </Button>
+        <Text 
+        style={{fontSize: 25, fontWeight: "bold", textAlign:"center", marginHorizontal: 20, marginBottom: 20 }}
+        > MULTIJUGADOR </Text>
         <Button
+        full
           rounded
-          block
           style={{ marginHorizontal: 20, marginBottom: 20 }}
           info
           onPress={() => {
             navigation.navigate("MultiPlayer");
           }}
         >
-          <Text>Modo Multijugador</Text>
+        <IconM />
+          <Text>MULTIJUGADOR</Text>
         </Button>
+        <Text 
+        style={{fontSize: 25, fontWeight: "bold", textAlign:"center", marginHorizontal: 20, marginBottom: 20 }}
+        > BOARDS </Text>
         <Button
+        full
           rounded
-          block
           style={{ marginHorizontal: 20, marginBottom: 20 }}
           success
           onPress={() => {
@@ -78,11 +90,12 @@ const HomeScreen = ({ navigation }) => {
             navigation.navigate("LeaderNormal");
           }}
         >
-          <Text>Normal Leaderboard</Text>
+        <Icon name='trophy' />
+          <Text>LEADERBOARD</Text>
         </Button>
         <Button
+        full
           rounded
-          block
           style={{ marginHorizontal: 20, marginBottom: 20 }}
           success
           onPress={() => {
@@ -90,12 +103,11 @@ const HomeScreen = ({ navigation }) => {
             navigation.navigate("LeaderRush");
           }}
         >
-          <Text>Rush Leaderboard</Text>
+        <Icon name='trophy' />
+          <Text>RUSH LEADERBOARD</Text>
         </Button>
-
         <Button
           rounded
-          block
           onPress={() => signout()}
           style={{ marginHorizontal: 20 }}
           light
@@ -114,7 +126,7 @@ HomeScreen.navigationOptions = ({ navigation }) => {
 
   ];
   return {
-    headerTitle: "Preguntados",
+    headerTitle: "PREGUNTADOS",
     headerRight: () => (
       <Button
         transparent
@@ -123,7 +135,7 @@ HomeScreen.navigationOptions = ({ navigation }) => {
           navigation.navigate("MultiplayerResults");
         }}
       >
-        <Icon />
+        <IconM />
       </Button>
     ),
   };

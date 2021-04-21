@@ -1,16 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  Container,
-  Content,
-  Text,
-  Form,
-  Item,
-  Input,
-  Button,
-  H1,
-  H2,
-  Label,
-} from "native-base";
+import {Container, Content, Text, Form, Item, Input, Button, H1, H2, Label } from "native-base";
 
 import NavLink from "../components/NavLink";
 
@@ -31,8 +20,8 @@ const SignUpScreen = () => {
           alignContent: "center",
         }}
       >
-        <H1 style={{ alignSelf: "center", marginBottom: 20 }}>Preguntados</H1>
-        <H2 style={{ alignSelf: "center" }}>Crear Usuario</H2>
+        <H1 style={{ alignSelf: "center", marginBottom: 20, backgroundColor: "blue", color: "white"}}>Preguntados</H1>
+        <H2 style={{ alignSelf: "center", fontSize: 20}}>Crear Usuario</H2>
         <Form style={{ marginRight: 10 }}>
           <Item floatingLabel>
             <Label>Email</Label>
@@ -83,7 +72,7 @@ const SignUpScreen = () => {
         </Button>
         <NavLink
           routeName="Login"
-          text="¿Ya estas Resgitrado? Inicia Sesion"
+          text="¿Ya tienes cuenta? Inicia Sesion"
           navStyle={{ alignSelf: "center", marginBottom: 50 }}
           changeScreen={clearErrorMessage}
         />

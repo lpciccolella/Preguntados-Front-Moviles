@@ -1,13 +1,13 @@
 import React from "react";
 import { Image } from "react-native";
 
-function Icon() {
+function IconM() {
   return (
     <Image
       source={require(`../assets/icons/multiplayer.png`)}
-      style={{ width: 32, marginRight: 20 }}
+      style={{ margin: 20}}
     />
   );
 }
 
-export default Icon;
+export default IconM;

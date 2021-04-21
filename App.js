@@ -1,21 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { setNavigator } from "./src/navigationRef";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { Provider as AuthProvider } from "./src/context/AuthContext";
+import { Provider as TriviaProvider } from "./src/context/TriviaContext";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+import HomeScreen from "./src/screens/HomeScreen";
+import LeaderNormalScreen from "./src/screens/LeaderNormalScreen";
+import LeaderRushScreen from "./src/screens/LeaderRushScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import SignUpScreen from "./src/screens/SignUpScreen";
+import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
+import QuestionScreen from "./src/screens/QuestionScreen";
+import ResultsScreen from "./src/screens/ResultsScreen";
+import MultiPlayerScreen from "./src/screens/MultiPlayerScreen";
+import MultiplayerResultScreen from "./src/screens/MultiplayerResultScreen";
+
+const switchNavigator = createSwitchNavigator({
+  /*ResolveAuth: ResolveAuthScreen,
+  loginFlow: createStackNavigator({
+    Signup: SignUpScreen,
+    Login: LoginScreen,
+  }),*/
+  mainFlow: createStackNavigator({
+    Home: HomeScreen,
+    Question: QuestionScreen,
+    Results: ResultsScreen,
+    LeaderNormal: LeaderNormalScreen,
+    LeaderRush: LeaderRushScreen,
+    MultiPlayer: MultiPlayerScreen,
+    MultiplayerResults: MultiplayerResultScreen,
+  }),
 });
+
+const App = createAppContainer(switchNavigator);
+
+export default () => {
+  return (
+    <TriviaProvider>
+      <AuthProvider>
+        <App
+          ref={(navigator) => {
+            setNavigator(navigator);
+          }}
+        />
+      </AuthProvider>
+    </TriviaProvider>
+  );
+};
